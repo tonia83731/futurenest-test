@@ -1,12 +1,11 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ChartPage from './pages/ChartPage';
-import LoginPage from './pages/LoginPage';
-import MainPage from './pages/MainPage';
-import MinePage from './pages/MinePage';
+import ChartPage from './pages/ChartPage'
+import LoginPage from './pages/LoginPage'
+import MainPage from './pages/MainPage'
+import MinePage from './pages/MinePage'
 
-
-function App() {
+function App () {
   return (
     <>
       <BrowserRouter>
@@ -18,7 +17,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
 export default App

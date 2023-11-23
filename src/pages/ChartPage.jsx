@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 
-import styled from "styled-components";
-import { breakpoints } from "../style/breakpoints";
-import { colorList } from "../style/colorList";
-import { MainSection, MainTitle } from "./MainPage";
+import styled from 'styled-components'
+import { breakpoints } from '../style/breakpoints'
+import { colorList } from '../style/colorList'
+import { MainSection, MainTitle } from './MainPage'
 
-import { Line } from "react-chartjs-2";
+import { Line } from 'react-chartjs-2'
 import {
   Chart as ChartJS,
   LineElement,
@@ -13,12 +13,12 @@ import {
   LinearScale,
   PointElement,
   Legend,
-  Tooltip,
-} from "chart.js";
+  Tooltip
+} from 'chart.js'
 
-import Header from "../components/Header";
-import Chart from "../components/Chart";
-import { getCarAccidentInfo } from "../api/getCarAccidentInfo";
+import Header from '../components/Header'
+import Chart from '../components/Chart'
+import { getCarAccidentInfo } from '../api/getCarAccidentInfo'
 
 ChartJS.register(
   LineElement,
@@ -27,152 +27,152 @@ ChartJS.register(
   PointElement,
   Legend,
   Tooltip
-);
+)
 
-export default function ChartPage() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [chartData, setChartData] = useState([]);
-  const [isShow, setIsShow] = useState(false);
-  const [showData, setShowData] = useState("");
+export default function ChartPage () {
+  const [isLoading, setIsLoading] = useState(true)
+  const [chartData, setChartData] = useState([])
+  const [isShow, setIsShow] = useState(false)
+  const [showData, setShowData] = useState('')
 
   const data = {
     labels: [
-      "一月",
-      "二月",
-      "三月",
-      "四月",
-      "五月",
-      "六月",
-      "七月",
-      "八月",
-      "九月",
-      "十月",
-      "十一月",
-      "十二月",
+      '一月',
+      '二月',
+      '三月',
+      '四月',
+      '五月',
+      '六月',
+      '七月',
+      '八月',
+      '九月',
+      '十月',
+      '十一月',
+      '十二月'
     ],
     datasets: [
       {
-        label: "A1件數",
+        label: 'A1件數',
         data: chartData.map((data) => data.A1件數),
         fill: false,
-        backgroundColor: "#677510",
-        borderColor: "#677510",
-        pointBorderColor: "#FFFFFF",
+        backgroundColor: '#677510',
+        borderColor: '#677510',
+        pointBorderColor: '#FFFFFF'
       },
       {
-        label: "A1受傷",
+        label: 'A1受傷',
         data: chartData.map((data) => data.A1受傷),
         fill: false,
-        backgroundColor: "#B5CC22",
-        borderColor: "#B5CC22",
-        pointBorderColor: "#323232",
+        backgroundColor: '#B5CC22',
+        borderColor: '#B5CC22',
+        pointBorderColor: '#323232'
       },
       {
-        label: "A1死亡",
+        label: 'A1死亡',
         data: chartData.map((data) => data.A1死亡),
         fill: false,
-        backgroundColor: "#F74449",
-        borderColor: "#F74449",
-        pointBorderColor: "#FFFFFF",
-      },
-    ],
-  };
+        backgroundColor: '#F74449',
+        borderColor: '#F74449',
+        pointBorderColor: '#FFFFFF'
+      }
+    ]
+  }
   const data2 = {
     labels: [
-      "一月",
-      "二月",
-      "三月",
-      "四月",
-      "五月",
-      "六月",
-      "七月",
-      "八月",
-      "九月",
-      "十月",
-      "十一月",
-      "十二月",
+      '一月',
+      '二月',
+      '三月',
+      '四月',
+      '五月',
+      '六月',
+      '七月',
+      '八月',
+      '九月',
+      '十月',
+      '十一月',
+      '十二月'
     ],
     datasets: [
       {
-        label: "A2件數",
+        label: 'A2件數',
         data: chartData.map((data) => data.A2件數),
         fill: false,
-        backgroundColor: "#677510",
-        borderColor: "#677510",
-        pointBorderColor: "#FFFFFF",
+        backgroundColor: '#677510',
+        borderColor: '#677510',
+        pointBorderColor: '#FFFFFF'
       },
       {
-        label: "A2受傷",
+        label: 'A2受傷',
         data: chartData.map((data) => data.A2受傷),
         fill: false,
-        backgroundColor: "#B5CC22",
-        borderColor: "#B5CC22",
-        pointBorderColor: "#323232",
-      },
-    ],
-  };
+        backgroundColor: '#B5CC22',
+        borderColor: '#B5CC22',
+        pointBorderColor: '#323232'
+      }
+    ]
+  }
   const data3 = {
     labels: [
-      "一月",
-      "二月",
-      "三月",
-      "四月",
-      "五月",
-      "六月",
-      "七月",
-      "八月",
-      "九月",
-      "十月",
-      "十一月",
-      "十二月",
+      '一月',
+      '二月',
+      '三月',
+      '四月',
+      '五月',
+      '六月',
+      '七月',
+      '八月',
+      '九月',
+      '十月',
+      '十一月',
+      '十二月'
     ],
     datasets: [
       {
-        label: "A3件數",
+        label: 'A3件數',
         data: chartData.map((data) => data.A3件數),
         fill: false,
-        backgroundColor: "#677510",
-        borderColor: "#677510",
-        pointBorderColor: "#FFFFFF",
-      },
-    ],
-  };
+        backgroundColor: '#677510',
+        borderColor: '#677510',
+        pointBorderColor: '#FFFFFF'
+      }
+    ]
+  }
   const options = {
     plugins: {
-      lengend: true,
+      lengend: true
     },
-    scales: {},
-  };
+    scales: {}
+  }
 
   const handleChartClick = (e) => {
-    const value = e.target.innerText;
-    console.log(value);
+    const value = e.target.innerText
+    console.log(value)
     // console.log(value.includes('A1'))
-    if (value === "111年度新竹市警察局每月交通事故統計A1") {
-      setIsShow(true);
-      setShowData(data);
-    } else if (value === "111年度新竹市警察局每月交通事故統計A2") {
-      setIsShow(true);
-      setShowData(data2);
-    } else if (value === "111年度新竹市警察局每月交通事故統計A3") {
-      setIsShow(true);
-      setShowData(data3);
+    if (value === '111年度新竹市警察局每月交通事故統計A1') {
+      setIsShow(true)
+      setShowData(data)
+    } else if (value === '111年度新竹市警察局每月交通事故統計A2') {
+      setIsShow(true)
+      setShowData(data2)
+    } else if (value === '111年度新竹市警察局每月交通事故統計A3') {
+      setIsShow(true)
+      setShowData(data3)
     }
-  };
+  }
 
   useEffect(() => {
     const getCarAccidentInfoAsync = async () => {
       try {
-        const res = await getCarAccidentInfo();
-        setChartData(res);
+        const res = await getCarAccidentInfo()
+        setChartData(res)
       } catch (error) {
-        console.error(error);
+        console.error(error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-    getCarAccidentInfoAsync();
-  }, []);
+    }
+    getCarAccidentInfoAsync()
+  }, [])
   if (isLoading === true) {
     return (
       <>
@@ -182,7 +182,7 @@ export default function ChartPage() {
           <Loading>Loading...</Loading>
         </MainSection>
       </>
-    );
+    )
   }
   return (
     <>
@@ -208,7 +208,7 @@ export default function ChartPage() {
         </Resourse>
       </MainSection>
     </>
-  );
+  )
 }
 
 const Loading = styled.p`
@@ -217,13 +217,13 @@ const Loading = styled.p`
   @media screen and (min-width: ${breakpoints.mobile}) {
     font-size: 18px;
   }
-`;
+`
 const ChartGroup = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   @media screen and (min-width: ${breakpoints.mobile}) {
   }
-`;
+`
 
 const Display = styled.div`
   display: none;
@@ -232,7 +232,7 @@ const Display = styled.div`
     width: 100%;
     margin: 32px 0;
   }
-`;
+`
 
 const Resourse = styled.p`
   margin: 16px 0;
@@ -241,4 +241,4 @@ const Resourse = styled.p`
     color: ${colorList.gray_table_border};
     text-decoration: underline;
   }
-`;
+`

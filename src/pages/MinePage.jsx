@@ -1,8 +1,8 @@
-import { MainSection, MainTitle } from "./MainPage";
+import { MainSection, MainTitle } from './MainPage'
 
-import Header from "../components/Header";
+import Header from '../components/Header'
 
-export default function MinePage() {
+export default function MinePage () {
   return (
     <>
       <Header />
@@ -10,5 +10,5 @@ export default function MinePage() {
         <MainTitle>踩地雷</MainTitle>
       </MainSection>
     </>
-  );
+  )
 }

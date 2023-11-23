@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
-import styled from "styled-components";
-import { Line } from "react-chartjs-2";
+import styled from 'styled-components'
+import { Line } from 'react-chartjs-2'
 
-export default function Chart({onChartClick, data1, data2, data3, options }) {
+export default function Chart ({ onChartClick, data1, data2, data3, options }) {
   return (
     <>
       <ChartDiv>
@@ -24,7 +23,7 @@ export default function Chart({onChartClick, data1, data2, data3, options }) {
         </button>
       </ChartDiv>
     </>
-  );
+  )
 }
 
 const ChartDiv = styled.div`
@@ -32,4 +31,4 @@ const ChartDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`;
+`

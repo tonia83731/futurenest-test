@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { breakpoints } from "../style/breakpoints";
+import styled from 'styled-components'
+import { breakpoints } from '../style/breakpoints'
 
-import Header from "../components/Header";
+import Header from '../components/Header'
 
-export default function MainPage() {
+export default function MainPage () {
   return (
     <>
       <Header />
@@ -11,7 +11,7 @@ export default function MainPage() {
         <MainTitle>首頁</MainTitle>
       </MainSection>
     </>
-  );
+  )
 }
 
 export const MainSection = styled.main`

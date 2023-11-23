@@ -1,39 +1,39 @@
-import styled from "styled-components";
-import { breakpoints } from "../style/breakpoints";
-import { colorList } from "../style/colorList";
-import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import styled from 'styled-components'
+import { breakpoints } from '../style/breakpoints'
+import { colorList } from '../style/colorList'
+import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
-import { useState } from "react";
+import { useState } from 'react'
 // import Header from "../components/Header";
-import InputText from "../components/InputText";
-import { userData } from "../data/userData";
+import InputText from '../components/InputText'
+import { userData } from '../data/userData'
 
-export default function LoginPage() {
+export default function LoginPage () {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    if(userName.length === 0 || password.length === 0) return
-    if(userName === userData.username && password === userData.password){
+    event.preventDefault()
+    if (userName.length === 0 || password.length === 0) return
+    if (userName === userData.username && password === userData.password) {
       Swal.fire({
-        position: "top",
-        title: "登入成功！",
+        position: 'top',
+        title: '登入成功！',
         timer: 1000,
-        icon: "success",
-        showConfirmButton: false,
-      });
-      navigate("/");
+        icon: 'success',
+        showConfirmButton: false
+      })
+      navigate('/')
     } else {
       Swal.fire({
-        position: "top",
-        title: "登入失敗！",
+        position: 'top',
+        title: '登入失敗！',
         timer: 1000,
-        icon: "error",
-        showConfirmButton: false,
-      });
+        icon: 'error',
+        showConfirmButton: false
+      })
     }
   }
   return (
@@ -69,7 +69,7 @@ export default function LoginPage() {
         </LoginDiv>
       </LoginSection>
     </>
-  );
+  )
 }
 
 const LoginSection = styled.section`
@@ -82,7 +82,7 @@ const LoginSection = styled.section`
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
   }
-`;
+`
 const LoginDiv = styled.div`
   grid-column: 2/3;
 `
@@ -92,11 +92,11 @@ const MainTitle = styled.h2`
   @media screen and (min-width: ${breakpoints.mobile}) {
     font-size: 24px;
   }
-`;
+`
 
 const FormSection = styled.form`
   text-align: left;
-`;
+`
 const FormBtn = styled.button`
   width: 100%;
   margin-top: 16px;
@@ -113,4 +113,4 @@ const OtherBtn = styled.div`
     color: ${colorList.gray_table_border};
     text-decoration: underline;
   }
-`;
+`

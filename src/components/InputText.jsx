@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import styled from "styled-components";
-import { breakpoints } from "../style/breakpoints";
-import { colorList } from "../style/colorList";
+import styled from 'styled-components'
+import { breakpoints } from '../style/breakpoints'
+import { colorList } from '../style/colorList'
 
-export default function InputText({
+export default function InputText ({
   name,
   className,
   label,
@@ -11,14 +11,14 @@ export default function InputText({
   placeholder,
   inputValue,
   isRequired,
-  onChange,
+  onChange
 }) {
   return (
     <InputTextDiv>
       <InputTextLabel htmlFor={`login-${className}`}>{label}</InputTextLabel>
       <InputTextInput
         name={name}
-        type={type || "text"}
+        type={type || 'text'}
         placeholder={placeholder}
         id={`login-${className}`}
         value={inputValue}
@@ -26,7 +26,7 @@ export default function InputText({
         onChange={onChange}
       />
     </InputTextDiv>
-  );
+  )
 }
 
 const InputTextDiv = styled.div`
@@ -35,12 +35,12 @@ const InputTextDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 12px;
-`;
+`
 const InputTextLabel = styled.label`
   margin-bottom: 8px;
   font-size: 16px;
   font-weight: 600;
-`;
+`
 const InputTextInput = styled.input`
   height: 40px;
   font-size: 16px;
@@ -64,4 +64,4 @@ const InputTextInput = styled.input`
   @media screen and (min-width: ${breakpoints.mobile}) {
     font-size: 18px;
   }
-`;
+`

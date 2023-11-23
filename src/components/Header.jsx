@@ -1,11 +1,10 @@
-import styled from "styled-components";
-import { breakpoints } from "../style/breakpoints";
-import { colorList } from "../style/colorList";
-import { NavLink, Link } from "react-router-dom";
-import { useState } from "react";
+import styled from 'styled-components'
+import { breakpoints } from '../style/breakpoints'
+import { colorList } from '../style/colorList'
+import { NavLink, Link } from 'react-router-dom'
+import { useState } from 'react'
 
-
-export default function Header() {
+export default function Header () {
   const [isChecked, setIsChecked] = useState(false)
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked)
@@ -27,7 +26,7 @@ export default function Header() {
           <NavItem>
             <NavLink
               to="/"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) => (isActive ? 'active' : '')}
             >
               首頁
             </NavLink>
@@ -35,7 +34,7 @@ export default function Header() {
           <NavItem>
             <NavLink
               to="/chart"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) => (isActive ? 'active' : '')}
             >
               圖表
             </NavLink>
@@ -43,7 +42,7 @@ export default function Header() {
           <NavItem>
             <NavLink
               to="/mine"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) => (isActive ? 'active' : '')}
             >
               踩地雷
             </NavLink>
@@ -57,7 +56,7 @@ export default function Header() {
         <Link to="/login">登入</Link>
       </LoginBtn>
     </SiteHeader>
-  );
+  )
 }
 
 const SiteHeader = styled.header`
