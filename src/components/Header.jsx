@@ -12,9 +12,7 @@ export default function Header() {
   }
   return (
     <SiteHeader>
-      <LogoDiv>
-        This is Logo
-      </LogoDiv>
+      <LogoDiv>This is Logo</LogoDiv>
       <NavInput
         type="checkbox"
         id="nav-input"
@@ -29,25 +27,25 @@ export default function Header() {
           <NavItem>
             <NavLink
               to="/"
-              className={({ isActive }) => (isActive ? 'active' : '')}
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               首頁
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              to="/YouBike/payment"
-              className={({ isActive }) => (isActive ? 'active' : '')}
+              to="/chart"
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               圖表
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              to="/YouBike/stop-info"
-              className={({ isActive }) => (isActive ? 'active' : '')}
+              to="/mine"
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
-               踩地雷
+              踩地雷
             </NavLink>
           </NavItem>
         </NavList>
@@ -59,7 +57,7 @@ export default function Header() {
         <Link to="/login">登入</Link>
       </LoginBtn>
     </SiteHeader>
-  )
+  );
 }
 
 const SiteHeader = styled.header`

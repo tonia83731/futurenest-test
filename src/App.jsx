@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
 import MinePage from './pages/MinePage';
 
+
 function App() {
   return (
     <>
